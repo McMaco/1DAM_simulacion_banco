@@ -1207,7 +1207,7 @@ public class Gestor {
 							for(i=0; i<=f_p.numfp; i++) {
 								if(fondo_pensiones[i].DNI.equals(dni)) {
 									System.out.println("-----------------");
-									System.out.println("CUENTA ENCONTRADA");
+									System.out.println("FONOD DE PENSIONES ENCONTRADO");
 									System.out.println("-----------------");
 									System.out.println();
 									System.out.println("Nombre: "+ fondo_pensiones[i].nombre);
@@ -1390,7 +1390,7 @@ public class Gestor {
 							for(i=0; i<=f_p_f.numfpf; i++) {
 								if(fondo_plazo_fijo[i].DNI.equals(dni)) {
 									System.out.println("-----------------");
-									System.out.println("CUENTA ENCONTRADA");
+									System.out.println("FONDO A PLAZO FIJO ENCONTRADA");
 									System.out.println("-----------------");
 									System.out.println();
 									System.out.println("Nombre: "+ fondo_plazo_fijo[i].nombre);
