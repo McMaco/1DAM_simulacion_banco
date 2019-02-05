@@ -12,13 +12,13 @@ public class f_p {
 	public String nombre;
 	public String apellido1;
 	public String apellido2;
-	private String num_obj;
+	public String num_obj;
 	public String DNI;
 	public String direccion;
-	private double saldo;
+	public long saldo;
 	
 	//CONSTRUCTOR
-	f_p(String nomb, String ap1, String ap2, String n_obj, String dni, String dir, double sald){
+	f_p(String nomb, String ap1, String ap2, String n_obj, String dni, String dir, long sald){
 		nombre=nomb;
 		apellido1=ap1;
 		apellido2=ap2;
@@ -54,7 +54,7 @@ public class f_p {
 		return this.direccion;
 	}
 	
-	public double getSaldo() {
+	public long getSaldo() {
 		return this.saldo;
 	}
 	
@@ -90,7 +90,7 @@ public class f_p {
 		return this;
 	}
 	
-	public f_p setSaldo(double sald) {
+	public f_p setSaldo(long sald) {
 		this.saldo=sald;
 		return this;
 	}

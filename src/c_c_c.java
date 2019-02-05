@@ -6,16 +6,16 @@
 
 public class c_c_c {
 	
-	static int numcuentas=0;
+	public static int numcuentas=0;
 	
 	//ATRIBUTOS
 	public String nombre;
 	public String apellido1;
 	public String apellido2;
-	private String num_obj;
+	public String num_obj;
 	public String DNI;
 	public String direccion;
-	private long saldo;
+	public long saldo;
 	
 	//CONSTRUCTOR
 	c_c_c(String nomb, String ap1, String ap2, String n_obj, String dni, String dir, long sald){
