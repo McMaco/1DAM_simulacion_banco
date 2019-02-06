@@ -1022,569 +1022,590 @@ public class Gestor {
 							dni = n_dni + letra_dni;
 							
 							for(i=0; i<=c_c_c.numcuentas; i++) {
-								if(cuentas[i].DNI.equals(dni)) {
-									System.out.println("-----------------");
-									System.out.println("CUENTA ENCONTRADA");
-									System.out.println("-----------------");
-									System.out.println();
-									System.out.println("Nombre: "+ cuentas[i].nombre);
-									System.out.println("Apellido 1: "+ cuentas[i].apellido1);
-									System.out.println("Apellido 2: "+ cuentas[i].apellido2);
-									System.out.println("Número de cuenta: " + cuentas[i].num_obj);
-									System.out.println("DNI: "+ cuentas[i].DNI);
-									System.out.println("Dirección: "+ cuentas[i].direccion);
-									System.out.println("Saldo: "+ cuentas[i].saldo + euros);
-									System.out.println();
-									do {
-										try {
-											System.out.println("--------------------");
-											System.out.println("1.- MODIFICAR CUENTA");
-											System.out.println("2.- BORRAR CUENTA");
-											System.out.println("3.- VOLVER");
-											System.out.println();
-											System.out.println("Introduzca una opción de menú: ");
-											opc1 = t.nextInt();
-										}
-										catch(Exception e) {
-											t.next();
-											opc1 = 4;
-										}
-										
-										switch(opc1) {
-										
-										case 1:
-											do {
-												System.out.println("---------");
-												System.out.println("MODIFICAR");
-												System.out.println("---------");
-												System.out.println("0.-SALIR");
-												System.out.println("1.-Nombre");
-												System.out.println("2.-Apellido 1");
-												System.out.println("3.-Apellido 2");
-												System.out.println("4.-Número de dni");
-												System.out.println("5.-Letra de dni");
-												System.out.println("6.-Calle");
-												System.out.println("7.-Número de su calle");
-												System.out.println("8.-Saldo");
-												try {
-													opc2 = t.nextInt();
-												}
-												catch(Exception e) {
-													t.next();
+								try {
+									if(cuentas[i].DNI.equals(dni)) {
+										System.out.println("-----------------");
+										System.out.println("CUENTA ENCONTRADA");
+										System.out.println("-----------------");
+										System.out.println();
+										System.out.println("Nombre: "+ cuentas[i].nombre);
+										System.out.println("Apellido 1: "+ cuentas[i].apellido1);
+										System.out.println("Apellido 2: "+ cuentas[i].apellido2);
+										System.out.println("Número de cuenta: " + cuentas[i].num_obj);
+										System.out.println("DNI: "+ cuentas[i].DNI);
+										System.out.println("Dirección: "+ cuentas[i].direccion);
+										System.out.println("Saldo: "+ cuentas[i].saldo + euros);
+										System.out.println();
+										do {
+											try {
+												System.out.println("--------------------");
+												System.out.println("1.- MODIFICAR CUENTA");
+												System.out.println("2.- BORRAR CUENTA");
+												System.out.println("3.- VOLVER");
+												System.out.println();
+												System.out.println("Introduzca una opción de menú: ");
+												opc1 = t.nextInt();
+											}
+											catch(Exception e) {
+												t.next();
+												opc1 = 4;
+											}
+											
+											switch(opc1) {
+											
+											case 1:
+												do {
+													System.out.println("---------");
+													System.out.println("MODIFICAR");
+													System.out.println("---------");
+													System.out.println("0.-SALIR");
+													System.out.println("1.-Nombre");
+													System.out.println("2.-Apellido 1");
+													System.out.println("3.-Apellido 2");
+													System.out.println("4.-Número de dni");
+													System.out.println("5.-Letra de dni");
+													System.out.println("6.-Calle");
+													System.out.println("7.-Número de su calle");
+													System.out.println("8.-Saldo");
+													try {
+														opc2 = t.nextInt();
+													}
+													catch(Exception e) {
+														t.next();
+														
+													}
+													switch(opc2) {
 													
-												}
-												switch(opc2) {
+													case 1: //NOMBRE
+														do {
+															try {
+																System.out.print("Nombre: ");
+																nomb = t.next();
+															}
+															catch(Exception e) {
+																nomb = "a";
+															}
+															nomb = nomb.toUpperCase();
+														}while ((nomb.length() < 2) || (nomb.length() > 15) || (nomb.matches(".*[^A-Z].*")));
+													break;
+													
+													case 2: //APELLIDO 1
+														do {
+															try {
+																System.out.print("Apellido 1: ");
+																ap1 = t.next();
+															}
+															catch(Exception e) {
+																ap1 = "a";
+															}
+															ap1 = ap1.toUpperCase();
+														}while ((ap1.length() < 3) || (ap1.length() > 15) || (ap1.matches(".*[^A-Z].*")));
+													break;
+													
+													case 3: //APELLIDO 2
+														do {
+															try {
+																System.out.print("Apellido 2: ");
+																ap2 = t.next();
+															}
+															catch(Exception e) {
+																ap2 = "a";
+															}
+															ap2 = ap2.toUpperCase();
+														}while ((ap2.length() < 3) || (ap2.length() > 15) || (ap2.matches(".*[^A-Z].*")));
+													break;
+													
+													case 4: //NUMERO DE DNI
+														do {
+															try {
+																System.out.print("Introduzca el número de su dni: ");
+																n_dni = t.nextInt();
+															}
+															catch(Exception e) {
+																t.next();
+																n_dni = 0;
+															}
+														}while((n_dni<10000000)||(n_dni>99999999));
+													break;
+													
+													case 5: //LETRA DE DNI
+														do {
+															try {
+																System.out.print("Introduzca la letra de su dni: ");
+																letra_dni = t.next();
+															}
+															catch(Exception e) {
+																letra_dni = "ab";
+															}
+															letra_dni = letra_dni.toUpperCase();
+														} while ((letra_dni.length() < 1) || (letra_dni.length() > 1) || (letra_dni.matches(".*[^A-Z].*")));
+														dni = n_dni + letra_dni;
+													break;
+													
+													case 6: //CALLE
+														do {
+															try {
+																System.out.print("Introduzca su calle: ");
+																calle = t.nextLine();
+															}
+															catch(Exception e) {
+																t.next();
+															}
+															calle = calle.toUpperCase();
+														}while((calle.length() < 4) || (calle.length() > 50) || (calle.matches(".*[^A-Z- ].*")));
+													break;
+													
+													case 7: //NUMERO DE SU CALLE
+														do {
+															try {
+																System.out.print("Introduzca el número de su calle: ");
+																n_calle = t.nextInt();
+															}
+															catch(Exception e) {
+																t.next();
+																n_calle = 0;
+															}
+														}while((n_calle<1)||(n_calle>100));
+														dir = calle + espacio_coma + n_calle;
+													break;
+													
+													case 8: //SALDO
+														do {
+															try {
+																System.out.print("Introduzca el saldo de su cuenta: ");
+																sald = t.nextLong();
+															}
+															catch(Exception e) {
+																t.next();
+																sald = -1;
+															}
+														}while(sald<0);
+													break;
+													
+													default: 
+														System.out.println("Opción incorrecta");
+													break;
+													}
+													
+												}while(opc2!=0);
 												
-												case 1: //NOMBRE
-													do {
-														try {
-															System.out.print("Nombre: ");
-															nomb = t.next();
-														}
-														catch(Exception e) {
-															nomb = "a";
-														}
-														nomb = nomb.toUpperCase();
-													}while ((nomb.length() < 2) || (nomb.length() > 15) || (nomb.matches(".*[^A-Z].*")));
-												break;
-												
-												case 2: //APELLIDO 1
-													do {
-														try {
-															System.out.print("Apellido 1: ");
-															ap1 = t.next();
-														}
-														catch(Exception e) {
-															ap1 = "a";
-														}
-														ap1 = ap1.toUpperCase();
-													}while ((ap1.length() < 3) || (ap1.length() > 15) || (ap1.matches(".*[^A-Z].*")));
-												break;
-												
-												case 3: //APELLIDO 2
-													do {
-														try {
-															System.out.print("Apellido 2: ");
-															ap2 = t.next();
-														}
-														catch(Exception e) {
-															ap2 = "a";
-														}
-														ap2 = ap2.toUpperCase();
-													}while ((ap2.length() < 3) || (ap2.length() > 15) || (ap2.matches(".*[^A-Z].*")));
-												break;
-												
-												case 4: //NUMERO DE DNI
-													do {
-														try {
-															System.out.print("Introduzca el número de su dni: ");
-															n_dni = t.nextInt();
-														}
-														catch(Exception e) {
-															t.next();
-															n_dni = 0;
-														}
-													}while((n_dni<10000000)||(n_dni>99999999));
-												break;
-												
-												case 5: //LETRA DE DNI
-													do {
-														try {
-															System.out.print("Introduzca la letra de su dni: ");
-															letra_dni = t.next();
-														}
-														catch(Exception e) {
-															letra_dni = "ab";
-														}
-														letra_dni = letra_dni.toUpperCase();
-													} while ((letra_dni.length() < 1) || (letra_dni.length() > 1) || (letra_dni.matches(".*[^A-Z].*")));
-													dni = n_dni + letra_dni;
-												break;
-												
-												case 6: //CALLE
-													do {
-														try {
-															System.out.print("Introduzca su calle: ");
-															calle = t.nextLine();
-														}
-														catch(Exception e) {
-															t.next();
-														}
-														calle = calle.toUpperCase();
-													}while((calle.length() < 4) || (calle.length() > 50) || (calle.matches(".*[^A-Z- ].*")));
-												break;
-												
-												case 7: //NUMERO DE SU CALLE
-													do {
-														try {
-															System.out.print("Introduzca el número de su calle: ");
-															n_calle = t.nextInt();
-														}
-														catch(Exception e) {
-															t.next();
-															n_calle = 0;
-														}
-													}while((n_calle<1)||(n_calle>100));
-													dir = calle + espacio_coma + n_calle;
-												break;
-												
-												case 8: //SALDO
-													do {
-														try {
-															System.out.print("Introduzca el saldo de su cuenta: ");
-															sald = t.nextLong();
-														}
-														catch(Exception e) {
-															t.next();
-															sald = -1;
-														}
-													}while(sald<0);
-												break;
-												
-												default: 
-													System.out.println("Opción incorrecta");
-												break;
-												}
-												
-											}while(opc2!=0);
+												cuentas[i] = new c_c_c(nomb, ap1, ap2, n_obj, dni, dir, sald);
+	
+											break;
 											
-											cuentas[i] = new c_c_c(nomb, ap1, ap2, n_obj, dni, dir, sald);
-
-										break;
+											case 2: 
+												
+												System.out.println("CUENTA ELIMINADA");
+												
+												cuentas[i] = null;
+											break;
+											}
+										}while(opc1!=3);
 										
-										case 2: 
-											
-											System.out.println("CUENTA ELIMINADA");
-											
-											cuentas[i] = null;
-										break;
-										}
-									}while(opc1!=3);
+									}
+								}
+								catch(Exception e) {
 									
 								}
-								else {
-									System.out.println("BUSQUEDA COMPLETADA");
-								}
+								
 							}
 							
 							for(i=0; i<=f_p.numfp; i++) {
-								if(fondo_pensiones[i].DNI.equals(dni)) {
-									System.out.println("-----------------");
-									System.out.println("FONOD DE PENSIONES ENCONTRADO");
-									System.out.println("-----------------");
-									System.out.println();
-									System.out.println("Nombre: "+ fondo_pensiones[i].nombre);
-									System.out.println("Apellido 1: "+ fondo_pensiones[i].apellido1);
-									System.out.println("Apellido 2: "+ fondo_pensiones[i].apellido2);
-									System.out.println("Número de cuenta: " + fondo_pensiones[i].num_obj);
-									System.out.println("DNI: "+ fondo_pensiones[i].DNI);
-									System.out.println("Dirección: "+ fondo_pensiones[i].direccion);
-									System.out.println("Saldo: "+ fondo_pensiones[i].saldo + euros);
-									System.out.println();
-									do {
-										try {
-											System.out.println("--------------------");
-											System.out.println("1.- MODIFICAR CUENTA");
-											System.out.println("2.- BORRAR CUENTA");
-											System.out.println("3.- VOLVER");
-											System.out.println();
-											System.out.println("Introduzca una opción de menú: ");
-											opc1 = t.nextInt();
-										}
-										catch(Exception e) {
-											t.next();
-											opc1 = 4;
-										}
-										
-										switch(opc1) {
-										
-										case 1:
-											do {
-												System.out.println("---------");
-												System.out.println("MODIFICAR");
-												System.out.println("---------");
-												System.out.println("0.-SALIR");
-												System.out.println("1.-Nombre");
-												System.out.println("2.-Apellido 1");
-												System.out.println("3.-Apellido 2");
-												System.out.println("4.-Número de dni");
-												System.out.println("5.-Letra de dni");
-												System.out.println("6.-Calle");
-												System.out.println("7.-Número de su calle");
-												System.out.println("8.-Saldo");
-												try {
-													opc2 = t.nextInt();
-												}
-												catch(Exception e) {
-													t.next();
+								try {
+									if(fondo_pensiones[i].DNI.equals(dni)) {
+										System.out.println("-----------------");
+										System.out.println("FONDO DE PENSIONES ENCONTRADO");
+										System.out.println("-----------------");
+										System.out.println();
+										System.out.println("Nombre: "+ fondo_pensiones[i].nombre);
+										System.out.println("Apellido 1: "+ fondo_pensiones[i].apellido1);
+										System.out.println("Apellido 2: "+ fondo_pensiones[i].apellido2);
+										System.out.println("Número de cuenta: " + fondo_pensiones[i].num_obj);
+										System.out.println("DNI: "+ fondo_pensiones[i].DNI);
+										System.out.println("Dirección: "+ fondo_pensiones[i].direccion);
+										System.out.println("Saldo: "+ fondo_pensiones[i].saldo + euros);
+										System.out.println();
+										do {
+											try {
+												System.out.println("--------------------");
+												System.out.println("1.- MODIFICAR CUENTA");
+												System.out.println("2.- BORRAR CUENTA");
+												System.out.println("3.- VOLVER");
+												System.out.println();
+												System.out.println("Introduzca una opción de menú: ");
+												opc1 = t.nextInt();
+											}
+											catch(Exception e) {
+												t.next();
+												opc1 = 4;
+											}
+											
+											switch(opc1) {
+											
+											case 1:
+												do {
+													System.out.println("---------");
+													System.out.println("MODIFICAR");
+													System.out.println("---------");
+													System.out.println("0.-SALIR");
+													System.out.println("1.-Nombre");
+													System.out.println("2.-Apellido 1");
+													System.out.println("3.-Apellido 2");
+													System.out.println("4.-Número de dni");
+													System.out.println("5.-Letra de dni");
+													System.out.println("6.-Calle");
+													System.out.println("7.-Número de su calle");
+													System.out.println("8.-Saldo");
+													try {
+														opc2 = t.nextInt();
+													}
+													catch(Exception e) {
+														t.next();
+														
+													}
+													switch(opc2) {
 													
-												}
-												switch(opc2) {
+													case 0: //SALIR
+														System.out.println("Volviendo...");
+													break;
+													
+													case 1: //NOMBRE
+														do {
+															try {
+																System.out.print("Nombre: ");
+																nomb = t.next();
+															}
+															catch(Exception e) {
+																nomb = "a";
+															}
+															nomb = nomb.toUpperCase();
+														}while ((nomb.length() < 2) || (nomb.length() > 15) || (nomb.matches(".*[^A-Z].*")));
+													break;
+													
+													case 2: //APELLIDO 1
+														do {
+															try {
+																System.out.print("Apellido 1: ");
+																ap1 = t.next();
+															}
+															catch(Exception e) {
+																ap1 = "a";
+															}
+															ap1 = ap1.toUpperCase();
+														}while ((ap1.length() < 3) || (ap1.length() > 15) || (ap1.matches(".*[^A-Z].*")));
+													break;
+													
+													case 3: //APELLIDO 2
+														do {
+															try {
+																System.out.print("Apellido 2: ");
+																ap2 = t.next();
+															}
+															catch(Exception e) {
+																ap2 = "a";
+															}
+															ap2 = ap2.toUpperCase();
+														}while ((ap2.length() < 3) || (ap2.length() > 15) || (ap2.matches(".*[^A-Z].*")));
+													break;
+													
+													case 4: //NUMERO DE DNI
+														do {
+															try {
+																System.out.print("Introduzca el número de su dni: ");
+																n_dni = t.nextInt();
+															}
+															catch(Exception e) {
+																t.next();
+																n_dni = 0;
+															}
+														}while((n_dni<10000000)||(n_dni>99999999));
+													break;
+													
+													case 5: //LETRA DE DNI
+														do {
+															try {
+																System.out.print("Introduzca la letra de su dni: ");
+																letra_dni = t.next();
+															}
+															catch(Exception e) {
+																letra_dni = "ab";
+															}
+															letra_dni = letra_dni.toUpperCase();
+														} while ((letra_dni.length() < 1) || (letra_dni.length() > 1) || (letra_dni.matches(".*[^A-Z].*")));
+														dni = n_dni + letra_dni;
+													break;
+													
+													case 6: //CALLE
+														do {
+															try {
+																System.out.print("Introduzca su calle: ");
+																calle = t.nextLine();
+															}
+															catch(Exception e) {
+																t.next();
+															}
+															calle = calle.toUpperCase();
+														}while((calle.length() < 4) || (calle.length() > 50) || (calle.matches(".*[^A-Z- ].*")));
+													break;
+													
+													case 7: //NUMERO DE SU CALLE
+														do {
+															try {
+																System.out.print("Introduzca el número de su calle: ");
+																n_calle = t.nextInt();
+															}
+															catch(Exception e) {
+																t.next();
+																n_calle = 0;
+															}
+														}while((n_calle<1)||(n_calle>100));
+														dir = calle + espacio_coma + n_calle;
+													break;
+													
+													case 8: //SALDO
+														do {
+															try {
+																System.out.print("Introduzca el saldo de su cuenta: ");
+																sald = t.nextLong();
+															}
+															catch(Exception e) {
+																t.next();
+																sald = -1;
+															}
+														}while(sald<0);
+													break;
+													
+													default: 
+														System.out.println("Opción incorrecta");
+													break;
+													}
+													
+												}while(opc2!=0);
 												
-												case 0: //SALIR
-													System.out.println("Volviendo...");
-												break;
-												
-												case 1: //NOMBRE
-													do {
-														try {
-															System.out.print("Nombre: ");
-															nomb = t.next();
-														}
-														catch(Exception e) {
-															nomb = "a";
-														}
-														nomb = nomb.toUpperCase();
-													}while ((nomb.length() < 2) || (nomb.length() > 15) || (nomb.matches(".*[^A-Z].*")));
-												break;
-												
-												case 2: //APELLIDO 1
-													do {
-														try {
-															System.out.print("Apellido 1: ");
-															ap1 = t.next();
-														}
-														catch(Exception e) {
-															ap1 = "a";
-														}
-														ap1 = ap1.toUpperCase();
-													}while ((ap1.length() < 3) || (ap1.length() > 15) || (ap1.matches(".*[^A-Z].*")));
-												break;
-												
-												case 3: //APELLIDO 2
-													do {
-														try {
-															System.out.print("Apellido 2: ");
-															ap2 = t.next();
-														}
-														catch(Exception e) {
-															ap2 = "a";
-														}
-														ap2 = ap2.toUpperCase();
-													}while ((ap2.length() < 3) || (ap2.length() > 15) || (ap2.matches(".*[^A-Z].*")));
-												break;
-												
-												case 4: //NUMERO DE DNI
-													do {
-														try {
-															System.out.print("Introduzca el número de su dni: ");
-															n_dni = t.nextInt();
-														}
-														catch(Exception e) {
-															t.next();
-															n_dni = 0;
-														}
-													}while((n_dni<10000000)||(n_dni>99999999));
-												break;
-												
-												case 5: //LETRA DE DNI
-													do {
-														try {
-															System.out.print("Introduzca la letra de su dni: ");
-															letra_dni = t.next();
-														}
-														catch(Exception e) {
-															letra_dni = "ab";
-														}
-														letra_dni = letra_dni.toUpperCase();
-													} while ((letra_dni.length() < 1) || (letra_dni.length() > 1) || (letra_dni.matches(".*[^A-Z].*")));
-													dni = n_dni + letra_dni;
-												break;
-												
-												case 6: //CALLE
-													do {
-														try {
-															System.out.print("Introduzca su calle: ");
-															calle = t.nextLine();
-														}
-														catch(Exception e) {
-															t.next();
-														}
-														calle = calle.toUpperCase();
-													}while((calle.length() < 4) || (calle.length() > 50) || (calle.matches(".*[^A-Z- ].*")));
-												break;
-												
-												case 7: //NUMERO DE SU CALLE
-													do {
-														try {
-															System.out.print("Introduzca el número de su calle: ");
-															n_calle = t.nextInt();
-														}
-														catch(Exception e) {
-															t.next();
-															n_calle = 0;
-														}
-													}while((n_calle<1)||(n_calle>100));
-													dir = calle + espacio_coma + n_calle;
-												break;
-												
-												case 8: //SALDO
-													do {
-														try {
-															System.out.print("Introduzca el saldo de su cuenta: ");
-															sald = t.nextLong();
-														}
-														catch(Exception e) {
-															t.next();
-															sald = -1;
-														}
-													}while(sald<0);
-												break;
-												
-												default: 
-													System.out.println("Opción incorrecta");
-												break;
-												}
-												
-											}while(opc2!=0);
-											
-											fondo_pensiones[i] = new f_p(nomb, ap1, ap2, n_obj, dni, dir, sald);
+												fondo_pensiones[i] = new f_p(nomb, ap1, ap2, n_obj, dni, dir, sald);
 
-										break;
+											break;
+											
+											case 2: 
+												
+												System.out.println("FONDO DE PENSIONES ELIMINADO");
+												
+												fondo_pensiones[i] = null;
+											break;
+											}
+										}while(opc1!=3);
 										
-										case 2: 
-											
-											System.out.println("FONDO DE PENSIONES ELIMINADO");
-											
-											fondo_pensiones[i] = null;
-										break;
-										}
-									}while(opc1!=3);
+									}
+								}
+								catch(Exception e) {
 									
 								}
-								else {
-									System.out.println("BUSQUEDA COMPLETADA");
-								}
+								
+								
 							}
 							
 							for(i=0; i<=f_p_f.numfpf; i++) {
-								if(fondo_plazo_fijo[i].DNI.equals(dni)) {
-									System.out.println("-----------------");
-									System.out.println("FONDO A PLAZO FIJO ENCONTRADA");
-									System.out.println("-----------------");
-									System.out.println();
-									System.out.println("Nombre: "+ fondo_plazo_fijo[i].nombre);
-									System.out.println("Apellido 1: "+ fondo_plazo_fijo[i].apellido1);
-									System.out.println("Apellido 2: "+ fondo_plazo_fijo[i].apellido2);
-									System.out.println("Número de cuenta: " + fondo_plazo_fijo[i].num_obj);
-									System.out.println("DNI: "+ fondo_plazo_fijo[i].DNI);
-									System.out.println("Dirección: "+ fondo_plazo_fijo[i].direccion);
-									System.out.println("Saldo: "+ fondo_plazo_fijo[i].saldo + euros);
-									System.out.println();
-									do {
-										try {
-											System.out.println("--------------------");
-											System.out.println("1.- MODIFICAR CUENTA");
-											System.out.println("2.- BORRAR CUENTA");
-											System.out.println("3.- VOLVER");
-											System.out.println();
-											System.out.println("Introduzca una opción de menú: ");
-											opc1 = t.nextInt();
-										}
-										catch(Exception e) {
-											t.next();
-											opc1 = 4;
-										}
-										
-										switch(opc1) {
-										
-										case 1:
-											do {
-												System.out.println("---------");
-												System.out.println("MODIFICAR");
-												System.out.println("---------");
-												System.out.println("0.-SALIR");
-												System.out.println("1.-Nombre");
-												System.out.println("2.-Apellido 1");
-												System.out.println("3.-Apellido 2");
-												System.out.println("4.-Número de dni");
-												System.out.println("5.-Letra de dni");
-												System.out.println("6.-Calle");
-												System.out.println("7.-Número de su calle");
-												System.out.println("8.-Saldo");
-												try {
-													opc2 = t.nextInt();
-												}
-												catch(Exception e) {
-													t.next();
+								try {
+									if(fondo_plazo_fijo[i].DNI.equals(dni)) {
+										System.out.println("-----------------");
+										System.out.println("FONDO A PLAZO FIJO ENCONTRADA");
+										System.out.println("-----------------");
+										System.out.println();
+										System.out.println("Nombre: "+ fondo_plazo_fijo[i].nombre);
+										System.out.println("Apellido 1: "+ fondo_plazo_fijo[i].apellido1);
+										System.out.println("Apellido 2: "+ fondo_plazo_fijo[i].apellido2);
+										System.out.println("Número de cuenta: " + fondo_plazo_fijo[i].num_obj);
+										System.out.println("DNI: "+ fondo_plazo_fijo[i].DNI);
+										System.out.println("Dirección: "+ fondo_plazo_fijo[i].direccion);
+										System.out.println("Saldo: "+ fondo_plazo_fijo[i].saldo + euros);
+										System.out.println();
+										do {
+											try {
+												System.out.println("--------------------");
+												System.out.println("1.- MODIFICAR CUENTA");
+												System.out.println("2.- BORRAR CUENTA");
+												System.out.println("3.- VOLVER");
+												System.out.println();
+												System.out.println("Introduzca una opción de menú: ");
+												opc1 = t.nextInt();
+											}
+											catch(Exception e) {
+												t.next();
+												opc1 = 4;
+											}
+											
+											switch(opc1) {
+											
+											case 1:
+												do {
+													System.out.println("---------");
+													System.out.println("MODIFICAR");
+													System.out.println("---------");
+													System.out.println("0.-SALIR");
+													System.out.println("1.-Nombre");
+													System.out.println("2.-Apellido 1");
+													System.out.println("3.-Apellido 2");
+													System.out.println("4.-Número de dni");
+													System.out.println("5.-Letra de dni");
+													System.out.println("6.-Calle");
+													System.out.println("7.-Número de su calle");
+													System.out.println("8.-Saldo");
+													try {
+														opc2 = t.nextInt();
+													}
+													catch(Exception e) {
+														t.next();
+														
+													}
+													switch(opc2) {
 													
-												}
-												switch(opc2) {
+													case 1: //NOMBRE
+														do {
+															try {
+																System.out.print("Nombre: ");
+																nomb = t.next();
+															}
+															catch(Exception e) {
+																nomb = "a";
+															}
+															nomb = nomb.toUpperCase();
+														}while ((nomb.length() < 2) || (nomb.length() > 15) || (nomb.matches(".*[^A-Z].*")));
+													break;
+													
+													case 2: //APELLIDO 1
+														do {
+															try {
+																System.out.print("Apellido 1: ");
+																ap1 = t.next();
+															}
+															catch(Exception e) {
+																ap1 = "a";
+															}
+															ap1 = ap1.toUpperCase();
+														}while ((ap1.length() < 3) || (ap1.length() > 15) || (ap1.matches(".*[^A-Z].*")));
+													break;
+													
+													case 3: //APELLIDO 2
+														do {
+															try {
+																System.out.print("Apellido 2: ");
+																ap2 = t.next();
+															}
+															catch(Exception e) {
+																ap2 = "a";
+															}
+															ap2 = ap2.toUpperCase();
+														}while ((ap2.length() < 3) || (ap2.length() > 15) || (ap2.matches(".*[^A-Z].*")));
+													break;
+													
+													case 4: //NUMERO DE DNI
+														do {
+															try {
+																System.out.print("Introduzca el número de su dni: ");
+																n_dni = t.nextInt();
+															}
+															catch(Exception e) {
+																t.next();
+																n_dni = 0;
+															}
+														}while((n_dni<10000000)||(n_dni>99999999));
+													break;
+													
+													case 5: //LETRA DE DNI
+														do {
+															try {
+																System.out.print("Introduzca la letra de su dni: ");
+																letra_dni = t.next();
+															}
+															catch(Exception e) {
+																letra_dni = "ab";
+															}
+															letra_dni = letra_dni.toUpperCase();
+														} while ((letra_dni.length() < 1) || (letra_dni.length() > 1) || (letra_dni.matches(".*[^A-Z].*")));
+														dni = n_dni + letra_dni;
+													break;
+													
+													case 6: //CALLE
+														do {
+															try {
+																System.out.print("Introduzca su calle: ");
+																calle = t.nextLine();
+															}
+															catch(Exception e) {
+																t.next();
+															}
+															calle = calle.toUpperCase();
+														}while((calle.length() < 4) || (calle.length() > 50) || (calle.matches(".*[^A-Z- ].*")));
+													break;
+													
+													case 7: //NUMERO DE SU CALLE
+														do {
+															try {
+																System.out.print("Introduzca el número de su calle: ");
+																n_calle = t.nextInt();
+															}
+															catch(Exception e) {
+																t.next();
+																n_calle = 0;
+															}
+														}while((n_calle<1)||(n_calle>100));
+														dir = calle + espacio_coma + n_calle;
+													break;
+													
+													case 8: //SALDO
+														do {
+															try {
+																System.out.print("Introduzca el saldo de su cuenta: ");
+																sald = t.nextLong();
+															}
+															catch(Exception e) {
+																t.next();
+																sald = -1;
+															}
+														}while(sald<0);
+													break;
+													
+													default: 
+														System.out.println("Opción incorrecta");
+													break;
+													}
+													
+												}while(opc2!=0);
 												
-												case 1: //NOMBRE
-													do {
-														try {
-															System.out.print("Nombre: ");
-															nomb = t.next();
-														}
-														catch(Exception e) {
-															nomb = "a";
-														}
-														nomb = nomb.toUpperCase();
-													}while ((nomb.length() < 2) || (nomb.length() > 15) || (nomb.matches(".*[^A-Z].*")));
-												break;
-												
-												case 2: //APELLIDO 1
-													do {
-														try {
-															System.out.print("Apellido 1: ");
-															ap1 = t.next();
-														}
-														catch(Exception e) {
-															ap1 = "a";
-														}
-														ap1 = ap1.toUpperCase();
-													}while ((ap1.length() < 3) || (ap1.length() > 15) || (ap1.matches(".*[^A-Z].*")));
-												break;
-												
-												case 3: //APELLIDO 2
-													do {
-														try {
-															System.out.print("Apellido 2: ");
-															ap2 = t.next();
-														}
-														catch(Exception e) {
-															ap2 = "a";
-														}
-														ap2 = ap2.toUpperCase();
-													}while ((ap2.length() < 3) || (ap2.length() > 15) || (ap2.matches(".*[^A-Z].*")));
-												break;
-												
-												case 4: //NUMERO DE DNI
-													do {
-														try {
-															System.out.print("Introduzca el número de su dni: ");
-															n_dni = t.nextInt();
-														}
-														catch(Exception e) {
-															t.next();
-															n_dni = 0;
-														}
-													}while((n_dni<10000000)||(n_dni>99999999));
-												break;
-												
-												case 5: //LETRA DE DNI
-													do {
-														try {
-															System.out.print("Introduzca la letra de su dni: ");
-															letra_dni = t.next();
-														}
-														catch(Exception e) {
-															letra_dni = "ab";
-														}
-														letra_dni = letra_dni.toUpperCase();
-													} while ((letra_dni.length() < 1) || (letra_dni.length() > 1) || (letra_dni.matches(".*[^A-Z].*")));
-													dni = n_dni + letra_dni;
-												break;
-												
-												case 6: //CALLE
-													do {
-														try {
-															System.out.print("Introduzca su calle: ");
-															calle = t.nextLine();
-														}
-														catch(Exception e) {
-															t.next();
-														}
-														calle = calle.toUpperCase();
-													}while((calle.length() < 4) || (calle.length() > 50) || (calle.matches(".*[^A-Z- ].*")));
-												break;
-												
-												case 7: //NUMERO DE SU CALLE
-													do {
-														try {
-															System.out.print("Introduzca el número de su calle: ");
-															n_calle = t.nextInt();
-														}
-														catch(Exception e) {
-															t.next();
-															n_calle = 0;
-														}
-													}while((n_calle<1)||(n_calle>100));
-													dir = calle + espacio_coma + n_calle;
-												break;
-												
-												case 8: //SALDO
-													do {
-														try {
-															System.out.print("Introduzca el saldo de su cuenta: ");
-															sald = t.nextLong();
-														}
-														catch(Exception e) {
-															t.next();
-															sald = -1;
-														}
-													}while(sald<0);
-												break;
-												
-												default: 
-													System.out.println("Opción incorrecta");
-												break;
-												}
-												
-											}while(opc2!=0);
-											
-											fondo_plazo_fijo[i] = new f_p_f(nomb, ap1, ap2, n_obj, dni, dir, sald);
+												fondo_plazo_fijo[i] = new f_p_f(nomb, ap1, ap2, n_obj, dni, dir, sald);
 
-										break;
+											break;
+											
+											case 2: 
+												
+												System.out.println("FONDO A PLAZO FIJO ELIMINADO");
+												
+												fondo_plazo_fijo[i] = null;
+											break;
+											}
+										}while(opc1!=3);
 										
-										case 2: 
-											
-											System.out.println("FONDO A PLAZO FIJO ELIMINADO");
-											
-											fondo_plazo_fijo[i] = null;
-										break;
-										}
-									}while(opc1!=3);
+									}
+								}
+								catch(Exception e) {
 									
 								}
-								else {
-									System.out.println("BUSQUEDA COMPLETADA");
-								}
+								
 							}
 							
+							do {
+								try {
+									System.out.println("¿DESEA SEGUIR BUSCANDO PRODUCTOS POR CÓDIGO?");
+									System.out.println("1.- SI");
+									System.out.println("2.- NO");
+									opc = t.nextInt();
+								}
+								catch(Exception e) {
+									t.next();
+									opc = -1;
+								}
+							}while((opc<0)||(opc>1));
 							
-							System.out.println("SI DESEA DEJAR DE BUSCAR PRODUCTO POR CLIENTE INTRODUZCA 0");
 						}while(opc!=0);
 					break;
 					
@@ -2149,8 +2170,19 @@ public class Gestor {
 								}
 							}
 							
-							
-							System.out.println("SI DESEA DEJAR DE BUSCAR PRODUCTO POR CODIGO DE CUENTA INTRODUZCA 0");
+							do {
+								try {
+									System.out.println("¿DESEA SEGUIR BUSCANDO PRODUCTOS POR CÓDIGO?");
+									System.out.println("1.- SI");
+									System.out.println("2.- NO");
+									opc = t.nextInt();
+								}
+								catch(Exception e) {
+									t.next();
+									opc = -1;
+								}
+							}while((opc<0)||(opc>1));
+						
 						}while(opc!=0);
 					break;
 					
