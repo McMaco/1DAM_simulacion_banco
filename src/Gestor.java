@@ -347,7 +347,7 @@ public class Gestor {
 						
 						
 						uno = new c_c_c(nomb, ap1, ap2, n_obj, dni, dir, sald);
-						cuentas[c_c_c.numcuentas] = new c_c_c(nomb, ap1, ap2, n_obj, dni, dir, sald);
+						cuentas[(c_c_c.numcuentas)-1] = new c_c_c(nomb, ap1, ap2, n_obj, dni, dir, sald);
 						
 						System.out.println();
 						
@@ -641,7 +641,7 @@ public class Gestor {
 						}
 						
 						dos = new f_p(nomb, ap1, ap2, n_obj, dni, dir, sald);
-						fondo_pensiones[f_p.numfp] = new f_p(nomb, ap1, ap2, n_obj, dni, dir, sald);
+						fondo_pensiones[(f_p.numfp)-1] = new f_p(nomb, ap1, ap2, n_obj, dni, dir, sald);
 						
 						System.out.println();
 						
@@ -938,7 +938,7 @@ public class Gestor {
 						}
 						
 						tres = new f_p_f(nomb, ap1, ap2, n_obj, dni, dir, sald);
-						fondo_plazo_fijo[f_p_f.numfpf] = new f_p_f(nomb, ap1, ap2, n_obj, dni, dir, sald);
+						fondo_plazo_fijo[(f_p_f.numfpf)-1] = new f_p_f(nomb, ap1, ap2, n_obj, dni, dir, sald);
 						
 						System.out.println();
 						
@@ -1047,10 +1047,10 @@ public class Gestor {
 										}
 										catch(Exception e) {
 											t.next();
-											opc = 4;
+											opc1 = 4;
 										}
 										
-										switch(opc) {
+										switch(opc1) {
 										
 										case 1:
 											do {
@@ -1202,6 +1202,9 @@ public class Gestor {
 									}while(opc1!=3);
 									
 								}
+								else {
+									System.out.println("BUSQUEDA COMPLETADA");
+								}
 							}
 							
 							for(i=0; i<=f_p.numfp; i++) {
@@ -1230,10 +1233,10 @@ public class Gestor {
 										}
 										catch(Exception e) {
 											t.next();
-											opc = 4;
+											opc1 = 4;
 										}
 										
-										switch(opc) {
+										switch(opc1) {
 										
 										case 1:
 											do {
@@ -1257,6 +1260,10 @@ public class Gestor {
 													
 												}
 												switch(opc2) {
+												
+												case 0: //SALIR
+													System.out.println("Volviendo...");
+												break;
 												
 												case 1: //NOMBRE
 													do {
@@ -1385,6 +1392,9 @@ public class Gestor {
 									}while(opc1!=3);
 									
 								}
+								else {
+									System.out.println("BUSQUEDA COMPLETADA");
+								}
 							}
 							
 							for(i=0; i<=f_p_f.numfpf; i++) {
@@ -1413,10 +1423,10 @@ public class Gestor {
 										}
 										catch(Exception e) {
 											t.next();
-											opc = 4;
+											opc1 = 4;
 										}
 										
-										switch(opc) {
+										switch(opc1) {
 										
 										case 1:
 											do {
@@ -1568,6 +1578,9 @@ public class Gestor {
 									}while(opc1!=3);
 									
 								}
+								else {
+									System.out.println("BUSQUEDA COMPLETADA");
+								}
 							}
 							
 							
@@ -1614,10 +1627,10 @@ public class Gestor {
 										}
 										catch(Exception e) {
 											t.next();
-											opc = 4;
+											opc1 = 4;
 										}
 										
-										switch(opc) {
+										switch(opc1) {
 										
 										case 1:
 											do {
@@ -1797,10 +1810,10 @@ public class Gestor {
 										}
 										catch(Exception e) {
 											t.next();
-											opc = 4;
+											opc1 = 4;
 										}
 										
-										switch(opc) {
+										switch(opc1) {
 										
 										case 1:
 											do {
@@ -1979,10 +1992,10 @@ public class Gestor {
 										}
 										catch(Exception e) {
 											t.next();
-											opc = 4;
+											opc1 = 4;
 										}
 										
-										switch(opc) {
+										switch(opc1) {
 										
 										case 1:
 											do {
