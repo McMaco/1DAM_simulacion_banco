@@ -747,9 +747,8 @@ public class Gestor {
 							catch(Exception e) {
 								t.next();
 							}
+							calle = calle.toUpperCase();
 						}while((calle.length() < 4) || (calle.length() > 50) || (calle.matches(".*[^A-Z- ].*")));
-						
-						System.out.println();
 						
 						do {
 							try {
@@ -761,8 +760,6 @@ public class Gestor {
 								n_calle = 0;
 							}
 						}while((n_calle<1)||(n_calle>100));
-						
-						System.out.println();
 						
 						dir = calle + espacio_coma + n_calle;
 						
@@ -976,9 +973,9 @@ public class Gestor {
 						System.out.println("--------------");
 						System.out.println("BUSCAR PRODUCTO");
 						System.out.println("--------------");
+						System.out.println("0.- VOLVER");
 						System.out.println("1.- POR CLIENTE");
 						System.out.println("2.- POR CÓDIGO");
-						System.out.println("3.- VOLVER");
 						System.out.println();
 						System.out.print("Introduzca una opción del menú: ");
 						opc = t.nextInt();
@@ -1595,9 +1592,9 @@ public class Gestor {
 							
 							do {
 								try {
-									System.out.println("¿DESEA SEGUIR BUSCANDO PRODUCTOS POR CÓDIGO?");
+									System.out.println("¿DESEA SEGUIR BUSCANDO PRODUCTOS POR CLIENTE?");
+									System.out.println("0.- NO");
 									System.out.println("1.- SI");
-									System.out.println("2.- NO");
 									opc = t.nextInt();
 								}
 								catch(Exception e) {
@@ -2173,8 +2170,9 @@ public class Gestor {
 							do {
 								try {
 									System.out.println("¿DESEA SEGUIR BUSCANDO PRODUCTOS POR CÓDIGO?");
+									System.out.println("0.- NO");
 									System.out.println("1.- SI");
-									System.out.println("2.- NO");
+									
 									opc = t.nextInt();
 								}
 								catch(Exception e) {
@@ -2191,7 +2189,7 @@ public class Gestor {
 					break;
 					
 					}
-				}while(opc!=3);
+				}while(opc!=0);
 				
 			break;
 			
