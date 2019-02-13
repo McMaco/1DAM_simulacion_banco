@@ -4,17 +4,13 @@
  * CURSO: DM1B
  */
 
-public class f_p {
+public class f_p extends padre{
 	
 	static int numfp=0;
 	
 	//ATRIBUTOS
-	public String nombre;
-	public String apellido1;
-	public String apellido2;
+	
 	public String num_obj;
-	public String DNI;
-	public String direccion;
 	public long saldo;
 	
 	//CONSTRUCTOR

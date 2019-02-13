@@ -4,17 +4,13 @@
  * CURSO: DM1B
  */
 
-public class c_c_c {
+public class c_c_c extends padre{
 	
 	public static int numcuentas=0;
 	
 	//ATRIBUTOS
-	public String nombre;
-	public String apellido1;
-	public String apellido2;
+	
 	public String num_obj;
-	public String DNI;
-	public String direccion;
 	public long saldo;
 	
 	//CONSTRUCTOR
@@ -30,28 +26,8 @@ public class c_c_c {
 	}
 	
 	//METODOS GETTERS
-	public String getNombre() {
-		return this.nombre;
-	}
-	
-	public String getApellido1() {
-		return this.apellido1;
-	}
-	
-	public String getApellido2() {
-		return this.apellido2;
-	}
-	
 	public String getNum() {
 		return this.num_obj;
-	}
-	
-	public String getDNI() {
-		return this.DNI;
-	}
-	
-	public String getDireccion() {
-		return this.direccion;
 	}
 	
 	public long getSaldo() {
@@ -60,33 +36,8 @@ public class c_c_c {
 	
 	
 	//METODOS SETTERS
-	public c_c_c setNombre(String nomb) {
-		this.nombre=nomb;
-		return this;
-	}
-	
-	public c_c_c setApellido1(String ap1) {
-		this.apellido1=ap1;
-		return this;
-	}
-	
-	public c_c_c setApellido2(String ap2) {
-		this.apellido2=ap2;
-		return this;
-	}
-	
 	public c_c_c setNum_obj(String n_obj) {
 		this.num_obj=n_obj;
-		return this;
-	}
-	
-	public c_c_c setDNI(String dni) {
-		this.DNI=dni;
-		return this;
-	}
-	
-	public c_c_c setDireccion(String dir) {
-		this.direccion=dir;
 		return this;
 	}
 	
